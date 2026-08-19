@@ -45,6 +45,7 @@ BOARD_USES_SPRD_HARDWARE := true
 BOARD_KERNEL_CMDLINE := console=ttyS1,115200n8
 BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 BOARD_KERNEL_CMDLINE += androidboot.force_normal_boot=1  #maybe fix for issue of recovery bootloop
+BOARD_KERNEL_CMDLINE += androidboot.init_fatal_reboot_target=recovery
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_KERNEL_OFFSET := 0x00008000
@@ -110,6 +111,7 @@ BOARD_AVB_BOOT_KEY_PATH := external/avb/test/data/testkey_rsa4096.pem
 BOARD_AVB_BOOT_ALGORITHM := SHA256_RSA4096
 BOARD_AVB_BOOT_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
 BOARD_AVB_BOOT_ROLLBACK_INDEX_LOCATION := 1
+BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flags 3
 
 # SYSTEM-AS-ROOT
 BOARD_SUPPRESS_SECURE_ERASE := true
@@ -138,7 +140,7 @@ TW_INCLUDE_REPACKTOOLS := false
 BOARD_USES_RECOVERY_AS_BOOT := true
 TARGET_NO_RECOVERY := true
 TW_HAS_NO_RECOVERY_PARTITION := true
-#TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/system/etc/recovery.fstab
+TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/system/etc/recovery.fstab
 TW_BRIGHTNESS_PATH := "/sys/devices/platform/sprd_backlight/backlight/sprd_backlight/brightness"
 TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
 TW_EXTRA_LANGUAGES := true
@@ -151,8 +153,9 @@ TARGET_USES_MKE2FS := true
 TW_SCREEN_BLANK_ON_BOOT := true
 TW_NO_USB_STORAGE := true
 TW_USE_MODEL_HARDWARE_ID_FOR_DEVICE_ID := true
-TW_INCLUDE_LPTOOLS := false
+TW_INCLUDE_LPTOOLS := true
 TW_DEVICE_VERSION := Doogee X96 TWRP by leefshitz 
+TW_NO_FASTBOOT_BOOT := true
 
 # Decryption
 TW_INCLUDE_CRYPTO := true
