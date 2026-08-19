@@ -447,5 +447,10 @@ on property:ro.bootmode=factorytest && property:ro.debuggable=0
 
 on property:sys.boot_completed=1
     start adbd
+    write /sys/class/android_usb/android0/enable 0
+    write /sys/class/android_usb/android0/idVendor 0x2A45
+    write /sys/class/android_usb/android0/idProduct 0x4EE1
+    write /sys/class/android_usb/android0/functions mtp,adb
+    write /sys/class/android_usb/android0/enable 1
     setprop sys.usb.config mtp,adb
     setprop sys.usb.state mtp,adb
