@@ -170,3 +170,6 @@ TW_EXCLUDE_DEFAULT_USB_INIT := false
 # Debugging
 TWRP_INCLUDE_LOGCAT := true
 TARGET_USES_LOGD := true
+
+#Fix reboot (maybe)
+TW_REBOOT_SYSTEM := reboot "system"
