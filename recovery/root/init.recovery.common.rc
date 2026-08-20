@@ -453,3 +453,10 @@ on property:sys.boot_completed=1
     write /sys/class/android_usb/android0/enable 1
     setprop sys.usb.config mtp,adb
     setprop sys.usb.state mtp,adb
+
+on property:sys.powerctl=reboot,system
+    exec u:r:shell:s0 -- /system/bin/reboot system
+
+on property:sys.powerctl=reboot,system
+    write /dev/block/by-name/misc reboot
+    exec u:r:shell:s0 -- /sbin/reboot
