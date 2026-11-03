@@ -32,10 +32,10 @@
 /dev/block/by-name/fbootlogo             /fbootlogo          emmc    defaults    defaults
 
 # Dynamic logical partitions
-system                                   /system             ext4    ro          wait,logical,first_stage_mount,slotselect
-system_ext                               /system_ext         ext4    ro          wait,logical,first_stage_mount,slotselect
-vendor                                   /vendor             ext4    ro          wait,logical,first_stage_mount,slotselect
-product                                  /product            ext4    ro          wait,logical,first_stage_mount,slotselect
+system                                   /system             ext4    ro          wait,logical,slotselect
+system_ext                               /system_ext         ext4    ro          wait,logical,slotselect
+vendor                                   /vendor             ext4    ro          wait,logical,slotselect
+product                                  /product            ext4    ro          wait,logical,slotselect
 
 # Metadata & Userdata
 /dev/block/by-name/metadata              /metadata           ext4    nodev,noatime,nosuid,errors=panic    wait,formattable,first_stage_mount,check
@@ -45,5 +45,5 @@ product                                  /product            ext4    ro         
 /dev/block/by-name/odmko                 /odmko              ext4    noatime,nosuid,nodev,nomblk_io_submit,noauto_da_alloc    wait,check,slotselect
 /dev/block/by-name/prodnv                /mnt/vendor         ext4    noatime,nosuid,nodev,nomblk_io_submit,noauto_da_alloc    wait,check
 
-# Super НЕ slotselect!
+# Super (not slotselect)
 /dev/block/by-name/super                 /super              emmc    defaults    defaults
