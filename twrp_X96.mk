@@ -16,7 +16,6 @@
 
 # Inherit from AOSP base products (AOSP minimal manifest)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 
 # AOSP GSI keys
 $(call inherit-product-if-exists, $(SRC_TARGET_DIR)/product/gsi_keys.mk)

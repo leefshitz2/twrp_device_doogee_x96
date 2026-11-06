@@ -3,7 +3,6 @@
 #
 
 service healthd /system/bin/healthd -r
-    critical
     seclabel u:r:healthd:s0
 
 service modem_ctl-cali /vendor/bin/modem_control
